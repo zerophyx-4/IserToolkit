@@ -1,30 +1,28 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>IserToolkit</title>
-    
-    <script type="importmap">
-    {
-      "imports": {
-        "react": "https://esm.sh/react@18.3.1",
-        "react-dom/client": "https://esm.sh/react-dom@18.3.1/client"
-      }
-    }
-    </script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body style="margin: 0; background: #0A0A0F;">
     <div id="root"></div>
 
-    <script type="module">
-        import React from 'react';
-        import { createRoot } from 'react-dom/client';
-        // Import file JSX Anda (Pastikan path-nya benar, misal ./src/IserToolkit.jsx)
-        import IserToolkit from './src/IserToolkit.jsx';
-        
+    <script type="text/babel" src="src/IserToolkit.jsx"></script>
+    
+    <script type="text/babel">
+        const { createRoot } = ReactDOM;
         const root = createRoot(document.getElementById('root'));
-        root.render(React.createElement(IserToolkit));
+        
+        // Pengecekan agar tidak error kalau file belum ter-load
+        if (typeof IserToolkit !== 'undefined') {
+            root.render(React.createElement(IserToolkit.default || IserToolkit));
+        } else {
+            console.error("File IserToolkit.jsx tidak ditemukan di path src/IserToolkit.jsx");
+        }
     </script>
 </body>
 </html>
