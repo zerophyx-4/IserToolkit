@@ -4,7 +4,7 @@ const { useState } = React;
 const deviceInfo = {
   rom: "HyperOS Port",
   android: "16",
-  device: "cannon",
+  device: "Infinix HOT 50",
   maintainer: "haiser",
   cpu: "MediaTek Helio G100",
   cpuUsage: 23,
