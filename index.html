@@ -4,19 +4,31 @@
     <meta charset="UTF-8">
     <title>IserToolkit</title>
 </head>
-<body>
-    <div id="root"></div>
+<body style="background: #121212; color: white;">
+
+    <div id="root">
+        <h1 id="status">Loading...</h1>
+    </div>
 
     <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     
-    <script type="text/babel" src="src/IserToolkit.jsx"></script>
-    
     <script type="text/babel">
-        // Jalankan aplikasinya
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />); 
+        try {
+            function App() {
+                return <h1>IserToolkit Berhasil Jalan!</h1>;
+            }
+
+            const container = document.getElementById('root');
+            const root = ReactDOM.createRoot(container);
+            root.render(<App />);
+            
+            // Jika berhasil, tulisan Loading akan hilang
+            document.getElementById('status').style.display = 'none';
+        } catch (err) {
+            document.getElementById('status').innerText = "Error: " + err.message;
+        }
     </script>
 </body>
 </html>
