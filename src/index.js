@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import IserToolkit from './src/IserToolkit.jsx'; // Sesuaikan path jika perlu
+import React from 'https://esm.sh/react@18.3.1';
+import ReactDOM from 'https://esm.sh/react-dom@18.3.1/client';
+import IserToolkit from './IserToolkit.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(React.createElement(IserToolkit));
+root.render(React.createElement(IserToolkit.default || IserToolkit));
