@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>IserToolkit</title>
     <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body style="margin: 0; background: #0A0A0F;">
@@ -14,12 +14,12 @@
     <script type="text/babel" src="src/IserToolkit.jsx"></script>
     
     <script type="text/babel">
-        // Menangkap export dari file IserToolkit.jsx
-        const { createRoot } = ReactDOM;
-        const App = IserToolkit.default || IserToolkit;
-        
-        const root = createRoot(document.getElementById('root'));
-        root.render(<App />);
+        // Tunggu sebentar sampai IserToolkit terbaca oleh Babel
+        setTimeout(() => {
+            const root = ReactDOM.createRoot(document.getElementById('root'));
+            // IserToolkit diambil dari global scope hasil load file di atas
+            root.render(<IserToolkit />);
+        }, 500);
     </script>
 </body>
 </html>
