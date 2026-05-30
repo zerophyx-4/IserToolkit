@@ -14,15 +14,12 @@
     <script type="text/babel" src="src/IserToolkit.jsx"></script>
     
     <script type="text/babel">
+        // Menangkap export dari file IserToolkit.jsx
         const { createRoot } = ReactDOM;
-        const root = createRoot(document.getElementById('root'));
+        const App = IserToolkit.default || IserToolkit;
         
-        // Pengecekan agar tidak error kalau file belum ter-load
-        if (typeof IserToolkit !== 'undefined') {
-            root.render(React.createElement(IserToolkit.default || IserToolkit));
-        } else {
-            console.error("File IserToolkit.jsx tidak ditemukan di path src/IserToolkit.jsx");
-        }
+        const root = createRoot(document.getElementById('root'));
+        root.render(<App />);
     </script>
 </body>
 </html>
