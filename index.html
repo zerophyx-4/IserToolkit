@@ -1,26 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>IserToolkit</title>
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
 </head>
 <body style="margin: 0; background: #0A0A0F;">
     <div id="root"></div>
 
-    <script>
-        // Kita gunakan window untuk menangkap IserToolkit dari file yang kita load
-        // Agar tidak blank, kita pastikan ini berjalan setelah load selesai
-        window.addEventListener('load', () => {
-            const root = ReactDOM.createRoot(document.getElementById('root'));
-            if (typeof IserToolkit !== 'undefined') {
-                root.render(React.createElement(IserToolkit.default || IserToolkit));
-            }
-        });
+    <script type="module">
+        import React from 'https://esm.sh/react@18.3.1';
+        import ReactDOM from 'https://esm.sh/react-dom@18.3.1/client';
+        import IserToolkit from './src/IserToolkit.jsx';
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(React.createElement(IserToolkit));
     </script>
-    
-    <script src="src/IserToolkit.js"></script>
 </body>
 </html>
